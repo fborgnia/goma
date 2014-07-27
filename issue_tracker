@@ -1,0 +1,17 @@
+1 write Rakefile for gem package
+2 write command parser class specs
+3 write command parser class
+4 write service generator class specs
+5 write service generator class
+5 write service template
+6 write model generator class specs
+7 write model generator class
+8 write model template
+9 write application initializer class specs
+10 write application initializer class
+11 write connection generator class specs
+11 write connection generator class
+12 write mysql connection template
+13 write redis connection template
+14 write redis sharded connection template
+15 write generic connection template
