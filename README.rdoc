@@ -1,0 +1,54 @@
+Goma is a very simple framework for developing webservices
+using eventmachine's api
+
+Its built upon
+
+eventmachine
+eventmachine_httpserver
+
+It structures your code by executing callbacks on your service classes and
+helps you to create models, although it does not provide a data mapping capability so you have to write your models initializer and data finders methods.
+
+It also has a simple verb based router that lets you define a class to instanciate and execute per route. Each service class respondes to a single action.
+
+It provides helper scripts to create the initial application:
+
+goma init
+
+it provides helpers to create models and services
+
+goma new model user
+
+this creates the User.rb file in the models directory with the model template and requires the file in the app initializer.
+
+goma new service user
+
+this creates the file UserService.rb in the services directory from the template and requires the file in the initialier.
+
+it provides helpers to create service conections, it creates a class SomethingConnection, adds the requirements in the Gemfile and creates the config yml from the template.
+
+goma new connection mysql
+goma new connection redis
+goma new connection redis_sharded
+goma new connection SomeOtherThing
+
+if the connection template is not suported, it will only create the SomethingConnection and you can do the rest, awesome if you take the time to provide the generator script
+
+MySQL connection
+
+MySql connection is implemented using a simple connection pool built upon the mysql2 gem using its asynchronous api and a gem em_mysql_connection_pool built upon EM::Queue
+
+Redis connection
+
+its just the em-redis gem using hiredis
+
+Redis Sharded Connection
+
+You can create a connection to a sharded redis cluster, its based on consistent_hashing gem and maps nodes to an avl tree created form the servers connection params merged as a url string:
+redis://host:port/db, it uses a em-redis+hiredis connection as default for each node and forwards the query issued with method_missing to the right connection. forget about multi-key queries.
+
+i only need to code it now.
+
+
+
+
