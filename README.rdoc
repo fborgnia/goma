@@ -11,6 +11,9 @@ helps you to create models, although it does not provide a data mapping capabili
 
 It also has a simple verb based router that lets you define a class to instanciate and execute per route. Each service class respondes to a single action.
 
+It is not ment to be used for REST apis, so stop reading if that what you need.
+It is designed to quickly construct high performance web services such as a freeswitch dialplan generator.
+
 It provides helper scripts to create the initial application:
 
 goma init
